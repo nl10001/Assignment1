@@ -33,15 +33,15 @@ void loop() {
   buttonState1 = digitalRead(button1);
   buttonState2 = digitalRead(button2);
   
-  if(button1 == LOW){ // enable waveform
-    if(button2 == LOW) { // normal waveform
-
+  if(buttonState1 == LOW){ // enable waveform
+    if(buttonState2 == LOW) { // normal waveform
+    
     }
-    else if(button2 == HIGH) { // inverted waveform
+    else if(buttonState2 == HIGH) { // inverted waveform
       
     }
   }
-  else if(button1 == HIGH) { // disable waveform
+  else if(buttonState1 == HIGH) { // disable waveform
 
   }
   
