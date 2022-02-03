@@ -8,13 +8,18 @@
 */
 
 #include<stdio.h>
-#inclue<time.h>
+
+#define A 1.2
+#define B 50
+#define C 17
+#define D 6
 
 // defining the corresponding pins to the ESP32 board 
 const int ledPin1 = 15;
 const int ledPin2 = 21;
 const int button1 = 22;
 const int button2 = 23;
+
 
 int buttonState1 = 0;
 int buttonState2 = 0;
@@ -35,7 +40,8 @@ void loop() {
   
   if(buttonState1 == LOW){ // enable waveform
     if(buttonState2 == LOW) { // normal waveform
-    
+      digitalWrite(ledPin2, HIGH); // turn red LED on
+      delay(1000) // 
     }
     else if(buttonState2 == HIGH) { // inverted waveform
       
