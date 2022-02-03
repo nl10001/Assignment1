@@ -9,8 +9,8 @@
 
 #include<stdio.h>
 
-#define A 1.2
-#define B 0.1
+#define A 1200
+#define B 100
 #define C 17
 #define D 6
 
@@ -41,29 +41,27 @@ void loop() {
   if(buttonState1 == LOW){ // enable waveform
     if(buttonState2 == LOW) { // normal waveform
       digitalWrite(ledPin2, HIGH); // begin sig B
-      delay(B); // wait B 
+      delayMicroseconds(B); // wait B 
       digitalWrite(ledPin2, LOW); // end sig B
       for(int i = 0; i < C; i++) { // iterate 17 times
-        int j = 0; // 
         digitalWrite(ledPin1, HIGH); // begin sig A
-        delay(A + (j*50)); // wait A with correct delay
-        j++; //increment j
+        delayMicroseconds(A + (i*50)); // wait A with correct delay
         digitalWrite(ledPin1, LOW); // end sig A
-        delay(B);
+        delayMicroseconds(B);
       }
       delay(D);
     }
     else if(buttonState2 == HIGH) { // inverted waveform
       digitalWrite(ledPin2, HIGH); // begin sig B
-      delay(B); // wait B
+      delayMicroseconds(B); // wait B
       digitalWrite(ledPin2, LOW); // end sig B
       for(int i = 0; i < C; i++) { // iterate 17 times
         int j = 16; // start from highest delay then to lowest
         digitalWrite(ledPin1, HIGH); // begin sig A
-        delay(A + (j * 50); // wait A with correct delay
+        delayMicroseconds(A + (j * 50)); // wait A with correct delay
         j--; // decrement j
         digitalWrite(ledPin1, LOW); // end sig A
-        delay(B);
+        delayMicroseconds(B);
       }
       delay(D);
     }
