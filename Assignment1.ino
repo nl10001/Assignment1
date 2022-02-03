@@ -40,8 +40,16 @@ void loop() {
   
   if(buttonState1 == LOW){ // enable waveform
     if(buttonState2 == LOW) { // normal waveform
-      digitalWrite(ledPin2, HIGH); // turn red LED on
-      delay(1000) // 
+      digitalWrite(ledPin2, HIGH); // begin sig B
+      delay(B*20); // wait 1 second 
+      digitalWrite(ledPin2, LOW); // end sig B
+      for(i = 0; i < 5; i++) { // iterate 5 times for testing
+        digitalWrite(ledPin1, HIGH); // begin sig A
+        delay(A*833); // wait 1 second
+        digitalWrite(ledPin1, LOW); // end sig A
+      }
+      
+      
     }
     else if(buttonState2 == HIGH) { // inverted waveform
       
