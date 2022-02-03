@@ -9,10 +9,10 @@
 
 #include<stdio.h>
 
-#define A 1.2
-#define B 50
-#define C 17
-#define D 6
+#define A 1000
+#define B 1000
+#define C 5
+#define D 2000
 
 // defining the corresponding pins to the ESP32 board 
 const int ledPin1 = 15;
@@ -41,22 +41,31 @@ void loop() {
   if(buttonState1 == LOW){ // enable waveform
     if(buttonState2 == LOW) { // normal waveform
       digitalWrite(ledPin2, HIGH); // begin sig B
-      delay(B*20); // wait 1 second 
+      delay(B); // wait 1 second 
       digitalWrite(ledPin2, LOW); // end sig B
-      for(i = 0; i < 5; i++) { // iterate 5 times for testing
+      for(int i = 0; i < C; i++) { // iterate 5 times for testing
         digitalWrite(ledPin1, HIGH); // begin sig A
-        delay(A*833); // wait 1 second
+        delay(A); // wait 1 second
         digitalWrite(ledPin1, LOW); // end sig A
+        delay(B);
       }
-      
-      
+      delay(D);
     }
     else if(buttonState2 == HIGH) { // inverted waveform
-      
+      digitalWrite(ledPin2, HIGH); // begin sig B
+      delay(B); // wait 1 second 
+      digitalWrite(ledPin2, LOW); // end sig B
+      for(int i = 0; i < C; i++) { // iterate 5 times for testing
+        digitalWrite(ledPin1, HIGH); // begin sig A
+        delay(A); // wait 1 second
+        digitalWrite(ledPin1, LOW); // end sig A
+        delay(B);
+      }
+      delay(D);
     }
   }
   else if(buttonState1 == HIGH) { // disable waveform
-
+    return;
   }
   
  }
