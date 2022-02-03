@@ -1,30 +1,19 @@
 /*
-  Blink
-  
-  Turns an LED on for one second, then off for one second, repeatedly.
+  Assignment 1
+  Author: Neil Lamont
+  HWUID: H00298429
 
-  Most Arduinos have an on-board LED you can control. On the UNO, MEGA and ZERO
-  it is attached to digital pin 13, on MKR1000 on pin 6. LED_BUILTIN is set to
-  the correct LED pin independent of which board is used.
-  If you want to know what pin the on-board LED is connected to on your Arduino
-  model, check the Technical Specs of your board at:
-  https://www.arduino.cc/en/Main/Products
-
-  modified 8 May 2014
-  by Scott Fitzgerald
-  modified 2 Sep 2016
-  by Arturo Guadalupi
-  modified 8 Sep 2016
-  by Colby Newman
-
-  This example code is in the public domain.
-
-  https://www.arduino.cc/en/Tutorial/BuiltInExamples/Blink
+  This code is designed to create and alter a set of waveforms 
+  using an ESP32 board and an oscilloscope to verify results.
 */
+
+#include<stdio.h>
+
+// defining the corresponding pins to the ESP32 board 
 const int ledPinA = 15;
 const int ledPinB = 21;
-const int buttonA = 23;
-const int buttonB = 22;
+const int buttonA = 22;
+const int buttonB = 23;
 
 int buttonStateA = 0;
 int buttonStateB = 0;
