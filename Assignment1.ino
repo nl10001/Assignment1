@@ -52,7 +52,7 @@ void loop() {
       }
       delay(D);
     }
-    else if(buttonState2 == HIGH) { // inverted waveform
+    else(buttonState2 == HIGH) { // inverted waveform
       digitalWrite(ledPin2, HIGH); // begin sig B
       delayMicroseconds(sigB); // wait B
       digitalWrite(ledPin2, LOW); // end sig B
@@ -65,7 +65,7 @@ void loop() {
       delay(D);
     }
   }
-  else if(buttonState1 == HIGH) { // disable waveform
+  else(buttonState1 == HIGH) { // disable waveform
     return;
   }
   
