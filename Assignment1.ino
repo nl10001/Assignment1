@@ -52,11 +52,11 @@ void loop() {
       }
       delay(D);
     }
-    else(buttonState2 == HIGH) { // inverted waveform
+    else if(buttonState2 == HIGH) { // inverted waveform
       digitalWrite(ledPin2, HIGH); // begin sig B
       delayMicroseconds(sigB); // wait B
       digitalWrite(ledPin2, LOW); // end sig B
-      for(int i = 17; i > 0 C; i--) { // iterate 17 times
+      for(int i = C; i > 0; i--) { // iterate 17 times
         digitalWrite(ledPin1, HIGH); // begin sig A
         delayMicroseconds(A + (i * 50)); // wait A with correct delay
         digitalWrite(ledPin1, LOW); // end sig A
