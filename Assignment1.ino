@@ -14,6 +14,7 @@
 #define C 17
 #define D 6
 #define sigB 50
+#define calc_Diff(i) (i * 50)
 
 // defining the corresponding pins to the ESP32 board 
 const int ledPin1 = 15;
@@ -46,26 +47,26 @@ void loop() {
       digitalWrite(ledPin2, LOW); // end sig B
       for(int i = 0; i < C; i++) { // iterate 17 times
         digitalWrite(ledPin1, HIGH); // begin sig A
-        delayMicroseconds(A + (i*50)); // wait A with correct delay
+        delayMicroseconds(A + calc_Diff(i)); // wait A with correct delay
         digitalWrite(ledPin1, LOW); // end sig A
         delayMicroseconds(B);
       }
       delay(D);
     }
-    else if(buttonState2 == HIGH) { // inverted waveform
+    else { // inverted waveform
       digitalWrite(ledPin2, HIGH); // begin sig B
       delayMicroseconds(sigB); // wait B
       digitalWrite(ledPin2, LOW); // end sig B
-      for(int i = C; i > 0; i--) { // iterate 17 times
+      for(int i = (C-1); i > -1; i--) { // iterate 17 times
         digitalWrite(ledPin1, HIGH); // begin sig A
-        delayMicroseconds(A + (i * 50)); // wait A with correct delay
+        delayMicroseconds(A + calc_Diff(i)); // wait A with correct delay
         digitalWrite(ledPin1, LOW); // end sig A
         delayMicroseconds(B);
       }
       delay(D);
     }
   }
-  else(buttonState1 == HIGH) { // disable waveform
+  else { // disable waveform
     return;
   }
   
